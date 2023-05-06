@@ -1,5 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
+/* define constants */
+#define TERMINAL "st"
+#define TERMCLASS "St"
+#define BROwSER "librewolf"
+
 static unsigned int borderpx  = 1;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
