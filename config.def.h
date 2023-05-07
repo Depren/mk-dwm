@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 /* Constants */
-#define TERM = "st"
-#define TERMCLASS = "St"
-#define BROWSER = "librewolf"
+#define TERM "st"
+#define TERMCLASS "St"
+#define BROWSER "librewolf"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
