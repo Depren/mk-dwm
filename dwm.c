@@ -1554,7 +1554,6 @@ setsticky(Client *c, int sticky)
     }
 }
 
-
 void
 setlayout(const Arg *arg)
 {
