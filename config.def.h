@@ -3,6 +3,8 @@
 #define TERM "st"
 #define TERMCLASS "St"
 #define BROWSER "librewolf"
+/* Source fibonacci layout */
+#include "fibonacci.c"
 
 /* appearance */
 static unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -46,8 +48,20 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
+    { "TTT",      bstack },  /* bottomstack */
+
+    { "[@]",      spiral }, /* fibonacci - spiral */
+    { "[\\]",     dwindle }, /* fibonacci - dwindle */
+
+    { "[D]",      deck },   /* deck layout */
+    { "[M]",      monocle },
+
+    { "|M|",      centeredmaster }, /* centered master */
+    { ">M>",      centeredfloatingmaster }, /* centered master floating */
+
+
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "===",      bstackhoriz }, /* bottomstack horizontal */
 };
 
 /* key definitions */
@@ -105,9 +119,16 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
     { MODKEY,                       XK_s,      togglesticky,   {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, /* tile mode */
-	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} }, /* bstack    */
-	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[2]} }, /* spiral    */
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, /* tiling */
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} }, /* bstack */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[2]} }, /* spiral */
+	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[3]} }, /* dwindle */
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} }, /* deck */
+    { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[5]} }, /* monocle */
+	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[6]} }, /* centered master */
+	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[7]} }, /* centered floating master */
+    { MODKEY,                       XK_j,      setlayout,      {.v = &layouts[8]} }, /* floating */
+	{ MODKEY|ShiftMask,             XK_j,      setlayout,      {.v = &layouts[9]} }, /* bstack horizontal */
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
