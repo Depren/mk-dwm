@@ -18,7 +18,7 @@ static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#770000";
+static char selbordercolor[]        = "#770000"; /* red border color */
 static char selbgcolor[]            = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -137,7 +137,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[5]} }, /* monocle */
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[6]} }, /* centered master */
 	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[7]} }, /* centered floating master */
-    { MODKEY,                       XK_j,      setlayout,      {.v = &layouts[8]} }, /* floating */
+    { MODKEY,                       XK_k,      setlayout,      {.v = &layouts[8]} }, /* floating */
 	{ MODKEY|ShiftMask,             XK_j,      setlayout,      {.v = &layouts[9]} }, /* bstack horizontal */
     { MODKEY,                       XK_o,      incnmaster,     {.i = +1 } },
     { MODKEY|ShiftMask,             XK_o,      incnmaster,     {.i = -1 } },
