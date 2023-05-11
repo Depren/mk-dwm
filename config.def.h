@@ -121,8 +121,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
-	{ MODKEY,                       XK_g,      shiftview,      {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_g,      shiftview,      {.i = 1 } },
+	{ MODKEY,                       XK_g,      shiftview,      {.i = 1 } },
+	{ MODKEY|ShiftMask,             XK_g,      shiftview,      {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
