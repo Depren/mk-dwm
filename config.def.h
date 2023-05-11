@@ -139,6 +139,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[7]} }, /* centered floating master */
     { MODKEY,                       XK_j,      setlayout,      {.v = &layouts[8]} }, /* floating */
 	{ MODKEY|ShiftMask,             XK_j,      setlayout,      {.v = &layouts[9]} }, /* bstack horizontal */
+    { MODKEY,                       XK_o,      incnmaster,     {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_o,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
