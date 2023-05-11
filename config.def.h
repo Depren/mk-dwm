@@ -3,8 +3,6 @@
 #define TERM "st"
 #define TERMCLASS "St"
 #define BROWSER "librewolf"
-/* Source fibonacci layout */
-#include "fibonacci.c"
 
 /* appearance */
 static unsigned int borderpx  = 3;        /* border pixel of windows */
