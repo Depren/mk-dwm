@@ -46,6 +46,9 @@ static const Layout layouts[] = {
 	{ "===",      bstackhoriz }, /* bottomstack horizontal */
     { "[@]",      spiral }, /* fibonacci - spiral */
     { "[\\]",     dwindle }, /* fibonacci - dwindle */
+    { "[D]",      deck },   /* deck layout */
+    { "|M|",      centeredmaster }, /* centered master */
+    { ">M>",      centeredfloatingmaster }, /* centered master floating */
 };
 
 /* key definitions */
@@ -85,7 +88,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
     { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[6]} },
-
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[7]} },
+    { MODKEY,                       XK_o,      setlayout,      {.v = &layouts[8]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[9]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
