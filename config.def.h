@@ -88,6 +88,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
+<<<<<<< HEAD
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
@@ -111,6 +112,7 @@ ResourcePref resources[] = {
 		{ "resizehints",       	INTEGER, &resizehints },
 		{ "mfact",      	 	FLOAT,   &mfact },
 };
+#include "shiftview.c"
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -120,8 +122,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_g,      shiftview,      {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_g,      shiftview,      {.i = 1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
@@ -175,5 +177,7 @@ static const Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+    { ClkTagBar,            0,              Button4,        shiftview,      {.i = -1} },
+    { ClkTagBar,            0,              Button5,        shiftview,      {.i = 1} },
 };
 
