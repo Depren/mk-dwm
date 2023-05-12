@@ -151,7 +151,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_g,      shiftview,      {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_x,      incrgaps,       {.i = +1 } }, /* increase gaps */
 	{ MODKEY,                       XK_z,      incrgaps,       {.i = -1 } }, /* decrease gaps */
 /*	{ MODKEY|Mod4Mask,              XK_i,      incrigaps,      {.i = +1 } }, */
