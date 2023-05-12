@@ -50,7 +50,6 @@ static int resizehints = 0;    /* 1 means respect size hints in tiled resizals *
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 #define FORCE_VSPLIT 1 /*nrogrid layout: force 2 clients to always split vertically */
 
-#define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
 #include "vanitygaps.c"
 
 static const Layout layouts[] = {
@@ -138,22 +137,22 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY|Mod4Mask,              XK_u,      incrgaps,       {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_u,      incrgaps,       {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_i,      incrigaps,      {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_o,      incrogaps,      {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_o,      incrogaps,      {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_6,      incrihgaps,     {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_6,      incrihgaps,     {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_7,      incrivgaps,     {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_8,      incrohgaps,     {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_9,      incrovgaps,     {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_0,      togglegaps,     {0} },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
+	{ MODKEY,                       XK_x,      incrgaps,       {.i = +1 } }, /* increase gaps */
+	{ MODKEY,                       XK_z,      incrgaps,       {.i = -1 } }, /* decrease gaps */
+/*	{ MODKEY|Mod4Mask,              XK_i,      incrigaps,      {.i = +1 } }, */
+/*	{ MODKEY|Mod4Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } }, */
+/*	{ MODKEY|Mod4Mask,              XK_o,      incrogaps,      {.i = +1 } }, */
+/*	{ MODKEY|Mod4Mask|ShiftMask,    XK_o,      incrogaps,      {.i = -1 } }, */
+/*	{ MODKEY|Mod4Mask,              XK_6,      incrihgaps,     {.i = +1 } }, */
+/*	{ MODKEY|Mod4Mask|ShiftMask,    XK_6,      incrihgaps,     {.i = -1 } }, */
+/*	{ MODKEY|Mod4Mask,              XK_7,      incrivgaps,     {.i = +1 } }, */
+/*	{ MODKEY|Mod4Mask|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } }, */
+/*	{ MODKEY|Mod4Mask,              XK_8,      incrohgaps,     {.i = +1 } }, */
+/*	{ MODKEY|Mod4Mask|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } }, */
+/*	{ MODKEY|Mod4Mask,              XK_9,      incrovgaps,     {.i = +1 } }, */
+/*	{ MODKEY|Mod4Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } }, */
+	{ MODKEY,                       XK_a,      togglegaps,     {0} }, /* toggle gaps */
+	{ MODKEY|ShiftMask,             XK_a,      defaultgaps,    {0} }, /* default gaps */
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
     { MODKEY,                       XK_s,      togglesticky,   {0} },
