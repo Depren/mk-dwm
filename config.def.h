@@ -210,6 +210,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     { MODKEY,                       XK_w,      spawn,          {.v = (const char*[]){ BROWSER, NULL } } },
+    { MODKEY,                       XK_gravy,  spawn,          {.v = (const char*[]){ "dmenuunicode", NULL } } },
 };
 
 /* button definitions */
