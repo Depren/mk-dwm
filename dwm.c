@@ -59,7 +59,7 @@
 #define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->wx+(m)->ww) - MAX((x),(m)->wx)) \
                                * MAX(0, MIN((y)+(h),(m)->wy+(m)->wh) - MAX((y),(m)->wy)))
 #define ISINC(X)                ((X) > 1000 && (X) < 3000)
-#define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]))
+#define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]) || C->issticky)
 #define PREVSEL                 3000
 #define LENGTH(X)               (sizeof X / sizeof X[0])
 #define MOD(N,M)                ((N)%(M) < 0 ? (N)%(M) + (M) : (N)%(M))
@@ -1523,6 +1523,23 @@ resizemouse(const Arg *arg)
 }
 
 void
+setsticky(Client *c, int sticky)
+{
+
+    if(sticky && !c->issticky) {
+        XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
+                PropModeReplace, (unsigned char *) &netatom[NetWMSticky], 1);
+        c->issticky = 1;
+    } else if(!sticky && c->issticky){
+        XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
+                PropModeReplace, (unsigned char *)0, 0);
+        c->issticky = 0;
+        arrange(c->mon);
+    }
+}
+
+
+void
 restack(Monitor *m)
 {
 	Client *c;
@@ -1687,23 +1704,6 @@ fullscreen(const Arg *arg)
 	}
 	togglebar(arg);
 }
-
-void
-setsticky(Client *c, int sticky)
-{
-
-    if(sticky && !c->issticky) {
-        XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
-                PropModeReplace, (unsigned char *) &netatom[NetWMSticky], 1);
-        c->issticky = 1;
-    } else if(!sticky && c->issticky){
-        XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
-                PropModeReplace, (unsigned char *)0, 0);
-        c->issticky = 0;
-        arrange(c->mon);
-    }
-}
-
 
 void
 setlayout(const Arg *arg)
@@ -2668,3 +2668,4 @@ main(int argc, char *argv[])
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
 }
+
