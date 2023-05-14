@@ -213,6 +213,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     { MODKEY,                       XK_w,      spawn,          {.v = (const char*[]){ BROWSER, NULL } } },
     { MODKEY,                       XK_grave,  spawn,          {.v = (const char*[]){ "dmenuunicode", NULL } } },
+    { MODKEY,                       XK_n,      spawn,          {.v = (const char*[]){ "newsboat", NULL } } },
 };
 
 /* button definitions */
