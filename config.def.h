@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 /* Constants */
-#define TERM "st"
+#define TERMINAL "st"
 #define TERMCLASS "St"
 #define BROWSER "librewolf"
 
@@ -35,8 +35,8 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERM, "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {TERM, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
 /*const char *spcmd3[] = {"passmenu", NULL }; */
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -213,7 +213,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     { MODKEY,                       XK_w,      spawn,          {.v = (const char*[]){ BROWSER, NULL } } },
     { MODKEY,                       XK_grave,  spawn,          {.v = (const char*[]){ "dmenuunicode", NULL } } },
-    { MODKEY,                       XK_n,      spawn,          {.v = (const char*[]){ "newsboat", NULL } } },
+    { MODKEY,                       XK_n,      spawn,          SHCMD(TERMINAL " -e newsboat ; pkill -RTMIN+6 dwmblocks") },
 };
 
 /* button definitions */
@@ -229,7 +229,7 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
 	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
 #endif
-    { ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD(TERM " -e nvim ~/.local/src/dwmblocks/config.h") },
+    { ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD(TERMINAL " -e nvim ~/.local/src/dwmblocks/config.h") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        defaultgaps,	{0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
