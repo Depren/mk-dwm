@@ -214,6 +214,8 @@ static const Key keys[] = {
     { MODKEY,                       XK_w,      spawn,          {.v = (const char*[]){ BROWSER, NULL } } },
     { MODKEY,                       XK_grave,  spawn,          {.v = (const char*[]){ "dmenuunicode", NULL } } },
     { MODKEY,                       XK_n,      spawn,          SHCMD(TERMINAL " -e newsboat ; pkill -RTMIN+6 dwmblocks") },
+    { MODKEY,                       XK_r,      spawn,          {.v = (const char*[]){ TERMINAL, "-e", "lfub", NULL } } },
+    { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = (const char*[]){ TERMINAL, "-e", "gtop", NULL } } },
 };
 
 /* button definitions */
